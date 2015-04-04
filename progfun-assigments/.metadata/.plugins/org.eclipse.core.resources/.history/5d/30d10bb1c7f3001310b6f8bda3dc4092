@@ -1,0 +1,27 @@
+package forcomp
+
+object Main extends App {
+  import forcomp._
+  val asbba = List(('a', 2), ('b', 2))
+  def func(abba: List[(Char, Int)]): List[List[(Char, Int)]] = {
+    if (abba.isEmpty) List()
+    else {
+      val head = abba.head
+      val tail = abba.tail
+      val combs =
+        for (z <- 1 until head._2 + 1) yield (head._1, z)
+      val listC = combs.toList
+      println("listC "+listC)
+      val yes = for (apair: (Char, Int) <- listC) yield {
+        println("apair "+apair)
+        for (alist <- func(tail)) yield {
+          println("alist "+alist)
+          apair :: alist
+        }
+      }
+      println("yes "+yes)
+      yes.flatten
+    }
+  }
+  println("Final "+func(asbba))
+}

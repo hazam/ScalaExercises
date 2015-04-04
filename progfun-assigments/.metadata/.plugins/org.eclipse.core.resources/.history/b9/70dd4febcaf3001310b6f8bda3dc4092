@@ -1,0 +1,19 @@
+package forcomp
+
+object test {
+  import Anagrams._
+  println("Welcome to the Scala worksheet")
+  
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
+    val r = List(('r', 1))
+    val xMap = Map() ++ lard
+    val rMap = Map() ++ r
+    
+    val resultMap = Map()
+    xMap.foldLeft(Map[Char, Int]())(
+    	(acc : Map[Char, Int], pair : (Char, Int)) =>
+    	val n = pair._2 - rMap(pair._1)
+    	if (n > 0) acc + (pair._1 -> n)
+    	else acc
+   )
+}

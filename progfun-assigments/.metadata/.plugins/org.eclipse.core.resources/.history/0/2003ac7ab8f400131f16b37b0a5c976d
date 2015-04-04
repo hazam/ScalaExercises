@@ -1,0 +1,41 @@
+package streams
+
+object test {
+  trait Level1 extends GameDef with Solver with StringParserTerrain {
+    val level =
+      """ooo-------
+      |oSoooo----
+      |ooooooooo-
+      |-ooooooooo
+      |-----ooToo
+      |------ooo-""".stripMargin
+  }
+  val lev = new Level1 {
+
+  }                                               //> lev  : streams.test.Level1 = streams.test$$anonfun$main$1$$anon$1@6ede1f90
+  val str = lev.neighborsWithHistory(lev.Block(lev.Pos(1, 1), lev.Pos(1, 1)), List(lev.Left, lev.Up))
+                                                  //> str  : Stream[(streams.test.lev.Block, List[streams.test.lev.Move])] = Strea
+                                                  //| m((Block(Pos(1,2),Pos(1,3)),List(Right, Left, Up)), ?)
+  str.toSet                                       //> res0: scala.collection.immutable.Set[(streams.test.lev.Block, List[streams.t
+                                                  //| est.lev.Move])] = Set((Block(Pos(1,2),Pos(1,3)),List(Right, Left, Up)), (Blo
+                                                  //| ck(Pos(2,1),Pos(3,1)),List(Down, Left, Up)))
+
+  val test2 = new Level1 {
+
+    val start = Set(
+      (Block(Pos(1, 2), Pos(1, 3)), List(Right, Left, Up)),
+      (Block(Pos(2, 1), Pos(3, 1)), List(Down, Left, Up)))
+
+    val toremove = Set(Block(Pos(1, 2), Pos(1, 3)), Block(Pos(1, 1), Pos(1, 1)))
+    val expected = Set(
+    	( Block(Pos(2,1),Pos(3,1)), List(Down,Left,Up) )
+    	)
+    def test = newNeighborsOnly(start.toStream, toremove)
+  }                                               //> test2  : streams.test.Level1{val start: scala.collection.immutable.Set[(this
+                                                  //| .Block, List[Product with Serializable with this.Move])]; val toremove: scal
+                                                  //| a.collection.immutable.Set[this.Block]; val expected: scala.collection.immut
+                                                  //| able.Set[(this.Block, List[Product with Serializable with this.Move])]; def 
+                                                  //| test: Stream[(this.Block, List[this.Move])]} = streams.test$$anonfun$main$1$
+                                                  //| $anon$2@30b98167
+   test2.test.toSet == test2.expected             //> res1: Boolean = true
+}

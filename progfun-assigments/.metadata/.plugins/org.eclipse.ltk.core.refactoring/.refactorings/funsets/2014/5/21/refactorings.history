@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Main.scala&apos; to &apos;patmat/src/main/scala/patmat&apos;&#x0A;- Original project: &apos;funsets&apos;&#x0A;- Destination element: &apos;patmat/src/main/scala/patmat&apos;&#x0A;- Original element: &apos;Main.scala&apos;" description="Copy file" destination="=patmat/src\/main\/scala&lt;patmat" element1="src/main/scala/funsets/Main.scala" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1400691356447" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,39 @@
+package forcomp
+
+object test {
+  import Anagrams._
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
+                                                  //> lard  : List[(Char, Int)] = List((a,1), (d,1), (l,1), (r,1))
+    val r = List(('r', 1))                        //> r  : List[(Char, Int)] = List((r,1))
+    val xMap = Map() ++ lard                      //> xMap  : scala.collection.immutable.Map[Char,Int] = Map(a -> 1, d -> 1, l -> 
+                                                  //| 1, r -> 1)
+    val rMap = Map() ++ r                         //> rMap  : scala.collection.immutable.Map[Char,Int] = Map(r -> 1)
+    
+    val resultMap = Map()                         //> resultMap  : scala.collection.immutable.Map[Nothing,Nothing] = Map()
+    xMap.foldLeft(Map[Char, Int]())(
+    	(acc : Map[Char, Int], pair : (Char, Int)) => {
+    	val n = pair._2 - rMap(pair._1)
+    	if (n > 0) acc + (pair._1 -> n)
+    	else acc
+    	}
+   )                                              //> java.util.NoSuchElementException: key not found: a
+                                                  //| 	at scala.collection.MapLike$class.default(MapLike.scala:228)
+                                                  //| 	at scala.collection.AbstractMap.default(Map.scala:58)
+                                                  //| 	at scala.collection.MapLike$class.apply(MapLike.scala:141)
+                                                  //| 	at scala.collection.AbstractMap.apply(Map.scala:58)
+                                                  //| 	at forcomp.test$$anonfun$main$1$$anonfun$1.apply(forcomp.test.scala:15)
+                                                  //| 	at forcomp.test$$anonfun$main$1$$anonfun$1.apply(forcomp.test.scala:14)
+                                                  //| 	at scala.collection.TraversableOnce$$anonfun$foldLeft$1.apply(Traversabl
+                                                  //| eOnce.scala:144)
+                                                  //| 	at scala.collection.TraversableOnce$$anonfun$foldLeft$1.apply(Traversabl
+                                                  //| eOnce.scala:144)
+                                                  //| 	at scala.collection.immutable.Map$Map4.foreach(Map.scala:181)
+                                                  //| 	at scala.collection.TraversableOnce$class.foldLeft(TraversableOnce.scala
+                                                  //| :144)
+                                                  //| 	at scala.collection.AbstractTraversable.foldLeft(Traversable.scala:105)
+                                                  //| 	at forcomp.test$$anonfun$main$1.apply$mcV$sp(forcomp.test.scala:13)
+                                                  //| 	at org.scalaide.worksheet.runtime.lib
+                                                  //| Output exceeds cutoff limit.
+}

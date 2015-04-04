@@ -1,0 +1,23 @@
+package forcomp
+
+object Main extends App {
+  import forcomp._
+  val asbba = List(('a', 2), ('b', 2))
+  def func(abba: List[(Char, Int)]): List[List[(Char, Int)]] = {
+    if (abba.isEmpty) List(Nil)
+     else {
+      val head = abba.head
+      val tail = abba.tail
+      val combs =
+        for (z <- 0 until head._2 + 1) yield (head._1, z)
+      val yes = for (apair: (Char, Int) <- combs.toList) yield {
+        for (alist <- func(abba.tail)) yield {
+          if (apair._2 > 0) apair :: alist 
+          else alist
+        }
+      }
+      yes.flatten
+    }
+  }
+  println("Final "+func(asbba))
+}

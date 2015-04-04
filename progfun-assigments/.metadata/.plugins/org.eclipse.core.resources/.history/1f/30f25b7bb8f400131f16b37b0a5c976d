@@ -1,0 +1,18 @@
+package streams
+
+object test {
+  trait Level1 extends GameDef with Solver with StringParserTerrain {
+    val level =
+      """ooo-------
+      |oSoooo----
+      |ooooooooo-
+      |-ooooooooo
+      |-----ooToo
+      |------ooo-""".stripMargin
+  }
+  val lev = new Level1 {
+
+  }                                               //> lev  : streams.test.Level1 = streams.test$$anonfun$main$1$$anon$1@6ede1f90
+
+  lev.pathsFromStart(0)
+}

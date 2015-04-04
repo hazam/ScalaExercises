@@ -1,0 +1,38 @@
+package streams
+
+object test {
+  trait Level1 extends GameDef with Solver with StringParserTerrain {
+    val level =
+      """ooo-------
+      |oSoooo----
+      |----------
+      |-ooooooooo
+      |-----ooToo
+      |------ooo-""".stripMargin
+  }
+  val lev = new Level1 {
+
+  }                                               //> lev  : streams.test.Level1 = streams.test$$anonfun$main$1$$anon$1@3810287d
+
+  lev.pathsFromStart.take(4).toSet                //> res0: scala.collection.immutable.Set[(streams.test.lev.Block, List[streams.t
+                                                  //| est.lev.Move])] = Set((Block(Pos(1,1),Pos(1,1)),List()), (Block(Pos(1,2),Pos
+                                                  //| (1,3)),List(Right)), (Block(Pos(1,4),Pos(1,4)),List(Right, Right)), (Block(P
+                                                  //| os(1,1),Pos(1,1)),List(Left, Right)))
+  lev.solution                                    //> java.lang.IndexOutOfBoundsException: 0
+                                                  //| 	at scala.collection.LinearSeqOptimized$class.apply(LinearSeqOptimized.sc
+                                                  //| ala:52)
+                                                  //| 	at scala.collection.immutable.Stream.apply(Stream.scala:185)
+                                                  //| 	at streams.Solver$class.solution(Solver.scala:110)
+                                                  //| 	at streams.test$$anonfun$main$1$$anon$1.solution$lzycompute(streams.test
+                                                  //| .scala:13)
+                                                  //| 	at streams.test$$anonfun$main$1$$anon$1.solution(streams.test.scala:13)
+                                                  //| 	at streams.test$$anonfun$main$1.apply$mcV$sp(streams.test.scala:18)
+                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$$anonfun$$exe
+                                                  //| cute$1.apply$mcV$sp(WorksheetSupport.scala:76)
+                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$.redirected(W
+                                                  //| orksheetSupport.scala:65)
+                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$.$execute(Wor
+                                                  //| ksheetSupport.scala:75)
+                                                  //| 	at streams.test$.main(streams.test.scala:12)
+                                                  //| 	at streams.test.main(streams.test.scala)
+}

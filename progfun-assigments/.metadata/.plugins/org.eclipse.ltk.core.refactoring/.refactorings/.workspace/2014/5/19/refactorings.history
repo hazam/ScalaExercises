@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 5 resources" deleteContents="true" description="Delete 5 resources" element1="/progfun-forcomp" element2="/progfun-funsets" element3="/progfun-objsets" element4="/progfun-patmat" element5="/progfun-streams" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1399474312025"/>
+</session>

@@ -1,0 +1,22 @@
+package forcomp
+
+object test {
+  import Anagrams._
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 2))
+                                                  //> lard  : List[(Char, Int)] = List((a,1), (d,1), (l,1), (r,2))
+    val r = List(('r', 1))                        //> r  : List[(Char, Int)] = List((r,1))
+    val xMap = Map() ++ lard                      //> xMap  : scala.collection.immutable.Map[Char,Int] = Map(a -> 1, d -> 1, l -> 
+                                                  //| 1, r -> 2)
+    val rMap = Map() ++ r                         //> rMap  : scala.collection.immutable.Map[Char,Int] = Map(r -> 1)
+    
+    val resultMap = Map()                         //> resultMap  : scala.collection.immutable.Map[Nothing,Nothing] = Map()
+    lard.foldLeft(List[(Char, Int)]())(
+    	(acc, pair : (Char, Int)) => {
+    	val n = pair._2 - rMap.getOrElse(pair._1, 0)
+    	if (n > 0) (pair._1 -> n) :: acc
+    	else acc
+    	}
+   )                                              //> res0: List[(Char, Int)] = List((r,1), (l,1), (d,1), (a,1))
+}

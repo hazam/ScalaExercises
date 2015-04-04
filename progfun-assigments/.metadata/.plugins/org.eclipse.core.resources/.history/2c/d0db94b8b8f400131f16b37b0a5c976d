@@ -1,0 +1,19 @@
+package streams
+
+object test {
+  trait Level1 extends GameDef with Solver with StringParserTerrain {
+    val level =
+   """ooo-------
+      |oSoooo----
+      |ooooooooo-
+      |-ooooooooo
+      |-----ooToo
+      |------ooo-""".stripMargin
+  }
+  val lev = new Level1 {
+
+  }                                               //> lev  : streams.test.Level1 = streams.test$$anonfun$main$1$$anon$1@5cd20346
+
+  lev.pathsFromStart.take(2)                      //> res0: (streams.test.lev.Block, List[streams.test.lev.Move]) = (Block(Pos(2,1
+                                                  //| ),Pos(3,1)),List(Down))
+}

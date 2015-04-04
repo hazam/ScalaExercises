@@ -1,0 +1,24 @@
+package forcomp
+
+object test {
+  import Anagrams._
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 2))
+                                                  //> lard  : List[(Char, Int)] = List((a,1), (d,1), (l,1), (r,2))
+    val r = List(('r', 4))                        //> r  : List[(Char, Int)] = List((r,4))
+    val rMap = Map().withDefaultValue(0) ++ r     //> rMap  : scala.collection.immutable.Map[Char,Int] = Map(r -> 4)
+    lard.foldLeft(List[(Char, Int)]())(
+    	(acc, pair : (Char, Int)) => {
+    	val n = pair._2 - rMap.getOrElse(pair._1, 0)
+    		if (n > 0) (pair._1 -> n) :: acc
+    		else acc
+    	}
+   ).reverse                                      //> res0: List[(Char, Int)] = List((a,1), (d,1), (l,1))
+   
+   
+   val sentence = List("I", "love", "you")        //> sentence  : List[String] = List(I, love, you)
+   sentenceAnagrams(sentence)                     //> res1: List[forcomp.Anagrams.Sentence] = List(List(you, Io, Lev), List(you, L
+                                                  //| ev, Io), List(you, olive), List(Io, you, Lev), List(Io, Lev, you), List(Lev,
+                                                  //|  you, Io), List(Lev, Io, you), List(olive, you))
+}

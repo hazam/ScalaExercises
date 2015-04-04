@@ -1,0 +1,20 @@
+package forcomp
+
+object test {
+  import Anagrams._
+  println("Welcome to the Scala worksheet")
+  
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 2))
+    val r = List(('r', 4))
+    val rMap = Map().withDefaultValue(0) ++ r
+    lard.foldLeft(List[(Char, Int)]())(
+    	(acc, pair : (Char, Int)) => {
+    	val n = pair._2 - rMap.getOrElse(pair._1, 0)
+    		if (n > 0) (pair._1 -> n) :: acc
+    		else acc
+    	}
+   ).reverse
+   
+   val sentence = List("I", "love", "you")
+   sentenceAnagrams(sentence)
+}

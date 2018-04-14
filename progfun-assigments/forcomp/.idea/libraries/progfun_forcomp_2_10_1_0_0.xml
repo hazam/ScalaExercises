@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="progfun-forcomp_2.10-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/scala-2.10/progfun-forcomp_2.10-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

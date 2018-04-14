@@ -1,2 +1,2 @@
-[0m[[0mdebug[0m] [0mPotentially incompatible versions of dependencies of {file:/Users/emanuele.di.saverio/Documents/progfun-assigments/forcomp/}assignment:[0m
-[0m[[0mdebug[0m] [0m   org.scala-lang: 2.10.1, 2.10.3, 2.10.2, 2.10.0[0m
+[debug] Potentially incompatible versions of dependencies of {file:/Users/emanuele.di.saverio/workspace/ScalaExercises/progfun-assigments/forcomp/}assignment:
+[debug]    org.scala-lang: 2.10.1, 2.10.3, 2.10.2, 2.10.0

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="config-1.0.23">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/forcomp/lib_managed/bundles/com.typesafe/config/config-1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
